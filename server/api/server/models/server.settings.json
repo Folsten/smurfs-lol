@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servers",
+  "info": {
+    "name": "server",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "acronym": {
+      "type": "string"
+    },
+    "smurfs": {
+      "via": "server",
+      "collection": "smurf"
+    },
+    "order": {
+      "type": "integer",
+      "unique": true,
+      "required": true
+    }
+  }
+}
