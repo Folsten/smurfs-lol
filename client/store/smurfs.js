@@ -16,8 +16,12 @@ export const actions = {
     let bottedSmurfs = [];
     let handleveledSmurfs = [];
 
+    // Отбор только валидных смурфов для дальнейшего использования
+    // smurf.server == проверка, что в strapi у smurf сущности указана связь с каким-либо сервером
+    const validatedSmurfs = smurfs.filter(smurf => smurf.server != null)
+
     // Сортировка по цене
-    let smurfsSortedByPrice = smurfs.sort(
+    let smurfsSortedByPrice = validatedSmurfs.sort(
       (a, b) => a.originalPrice - b.originalPrice
     );
 

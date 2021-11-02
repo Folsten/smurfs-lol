@@ -3,7 +3,7 @@
     <div class="w-full flex flex-col items-center p-5">
       <div class="w-full flex justify-center pb-5 text-center">
         <div class="flex text-whiteDarker text-xl font-semibold">
-          {{ smurf.title }}
+          {{ smurf.server.acronym + " " + smurf.title }}
         </div>
       </div>
       <div class="row">
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.commit('cart/add', this.smurf)
+      this.$store.commit('cart/setSmurf', this.smurf)
       this.$store.commit('cart/toggle')
     },
     makeFirstLetterUppercase(value) {

@@ -1,6 +1,6 @@
 <template>
   <div
-    @mousedown.self="closeCart"
+    @mousedown.self="$store.commit('cart/toggle')"
     class="flex fixed overlay z-40"
     v-if="this.$store.state.cart.isActive"
   >
@@ -22,7 +22,7 @@
       "
     >
       <div
-        @click="closeCart"
+        @click="$store.commit('cart/toggle')"
         class="
           flex
           absolute
@@ -49,93 +49,10 @@
         Checkout
       </div>
       <div class="pt-5 flex flex-col w-full">
-        <!-- <div class="flex justify-between w-full">
-          <div class="text-lg">
-            <i class="fas fa-box-open text-primary pr-2"></i
-            ><span class="font-bold">{{
-              $store.state.cart.order.smurf.title
-            }}</span>
-          </div>
-          <div class="text-lg md:text-xl font-bold pl-3">
-            USD {{ $store.state.cart.order.smurf.finalPrice }}
-          </div>
-        </div> -->
         <CartProduct></CartProduct>
-
-        <!-- <div class="pt-3 flex items-center">
-          <span class="mr-4">Quantity:</span>
-          <div
-            @click="decreaseQuantity"
-            class="
-              mr-2
-              cursor-pointer
-              flex
-              h-6
-              w-6
-              justify-center
-              items-center
-              bg-secondaryLight
-              rounded-full
-            "
-          >
-            <i class="fas fa-minus text-xs"></i>
-          </div>
-          <input
-            type="text"
-            class="
-              text-center
-              pl-2
-              pr-2
-              w-12
-              h-8
-              bg-primary
-              border border-gray
-              font-bold
-              rounded-main
-            "
-            disabled
-          />
-          <div
-            @click="increaseQuantity"
-            :class="{ hidden: false }"
-            class="
-              ml-2
-              cursor-pointer
-              flex
-              h-6
-              w-6
-              justify-center
-              items-center
-              bg-secondaryLight
-              rounded-full
-            "
-          >
-            <i class="fas fa-plus text-xs"></i>
-          </div>
-        </div>
-        <div class="w-full flex justify-center">
-          <form
-            @submit.prevent="checkout"
-            class="flex flex-col items-center cart__form pt-5 xs:pt-7 sm:pt-10"
-          >
-            <span class="text-text">Please, enter your email to proceed</span>
-            <input
-              type="email"
-              required
-              class="
-                bg-primary
-                rounded-main
-                w-full
-                mt-2
-                h-10
-                pl-2
-                pr-2
-                text-white
-              "
-              placeholder="Your email*"
-              v-model="email"
-            />
-            <div class="flex w-full items-center mt-2">
+        <CartQuantityController></CartQuantityController>
+        <CartForm></CartForm>
+            <!-- <div class="flex w-full items-center mt-2">
               <input
                 type="text"
                 v-model="coupon.code"
@@ -213,8 +130,8 @@
               >
                 Wrong Coupon
               </div>
-            </div>
-            <div class="mt-3 text-xs flex items-center">
+            </div> -->
+            <!-- <div class="mt-3 text-xs flex items-center">
               <label class="flex justify-center items-center">
                 <input
                   type="checkbox"
@@ -274,10 +191,8 @@
                 @click="cart_isActive"
                 >Terms & Conditions.</router-link
               >
-            </div>
-          </form>
-        </div>
-        <div class="flex justify-center mt-5 xs:mt-7 sm:mt-10">
+            </div> -->
+        <!-- <div class="flex justify-center mt-5 xs:mt-7 sm:mt-10">
           <img
             src="../../assets/img/paymentMethods/creditCards/Visa/Visa-card-dark.png"
             class="w-14 h-full ml-1 mr-1"
@@ -308,8 +223,6 @@
 export default {
   methods: {
     closeCart() {},
-    increaseQuantity() {},
-    decreaseQuantity() {},
     checkout() {},
   },
 };
