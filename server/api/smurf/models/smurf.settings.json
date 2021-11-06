@@ -34,7 +34,6 @@
     },
     "warranty": {
       "type": "string",
-      "default": "warranty",
       "required": true
     },
     "originalPrice": {

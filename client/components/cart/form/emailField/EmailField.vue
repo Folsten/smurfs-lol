@@ -6,6 +6,7 @@
       required
       class="bg-primary rounded-main w-full mt-2 h-10 pl-2 pr-2 text-white"
       placeholder="Your email*"
+      @keydown.space.prevent
       v-model="email"
     />
   </div>
@@ -19,7 +20,7 @@ export default {
         return this.$store.getters["customer/customer"].email;
       },
       set(value) {
-        this.$store.commit("cart/updateEmail", value);
+        this.$store.commit("customer/updateEmail", value);
       },
     },
   },

@@ -13,7 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "acronym": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "smurfs": {
       "via": "server",

@@ -4,6 +4,7 @@
       type="text"
       class="bg-primary rounded-main w-full h-10 pl-2 pr-2"
       placeholder="Coupon"
+      @keydown.space.prevent
       v-model="coupon"
     />
     <div
@@ -25,6 +26,7 @@
         cursor-pointer
         hover:bg-secondaryLight
       "
+      @click="$store.dispatch('coupon/verifyCoupon')"
     >
       Apply Coupon
     </div>
@@ -85,7 +87,7 @@ export default {
         return this.$store.getters["coupon/coupon"].code;
       },
       set(value) {
-        this.$store.commit("cart/updateCoupon", value);
+        this.$store.commit("coupon/updateCoupon", value);
       },
     },
   },
