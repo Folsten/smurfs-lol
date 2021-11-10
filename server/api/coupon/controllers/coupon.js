@@ -19,13 +19,17 @@ module.exports = {
     const { code } = ctx.params
     const entity = await strapi.services.coupon.findOne({ code });
     if (entity != null) {
-      // Проверка, что купон код уже начал действовать
+      // Проверка, что купон уже начал действовать
       if (new Date() < new Date(entity.start_date)) {
         return { status: "warning", statusText: `This coupon code does not exist`, content: sanitizeEntity(entity, { model: strapi.models.coupon }) }
       }
-      // Проверка, что купон код ещё действует
+      // Проверка, что купон ещё действует
       if (new Date() > new Date(entity.end_date)) {
         return { status: "warning", statusText: "This coupon code has expired", content: sanitizeEntity(entity, { model: strapi.models.coupon }) }
+      }
+      // Проверка, что купон ещё не исчерпал лимит своих использований
+      if (entity.stock != "infinity" && entity.stock <= 0) {
+        return { status: "warning", statusText: "This coupon code has reached the limit of its uses", content: sanitizeEntity(entity, { model: strapi.models.coupon }) }
       }
       // Срабатывает, если все существующие проверки были пройдены
       return { status: "OK", content: sanitizeEntity(entity, { model: strapi.models.coupon }) }

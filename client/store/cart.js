@@ -1,13 +1,20 @@
 export const state = () => ({
   isActive: false,
+  newsletter: false,
   order: {
     quantity: 1,
     smurf: ""
-  }
+  },
+  notification: {
+    status: "",
+    text: "default text",
+  },
 })
 
 export const getters = {
+  cart: state => state,
   order: ({ order }) => order,
+  notification: ({ notification }) => notification,
 }
 
 export const mutations = {
@@ -16,8 +23,8 @@ export const mutations = {
     // Сброс к значениям по умолчанию
     state.order.quantity = 1
   },
-  setSmurf(state, smurf) {
-    state.order.smurf = smurf
+  setSmurf({ order }, smurf) {
+    order.smurf = smurf
   },
   increaseQuantity({ order }) {
     if (order.quantity < 10) {
@@ -29,4 +36,8 @@ export const mutations = {
       order.quantity--;
     }
   },
+  // Работаем тут
+  toggleNewsletter(state) {
+    state.newsletter = !state.newsletter
+  }
 }

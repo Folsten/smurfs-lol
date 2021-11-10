@@ -8,7 +8,7 @@
       <CartFormCoupon></CartFormCoupon>
       <CartFormNewsletter></CartFormNewsletter>
       <CartFormCheckoutButton></CartFormCheckoutButton>
-      <div class="text-sm pt-3 cart__notification">cart__notification</div>
+      <CartFormNotification></CartFormNotification>
     </form>
   </div>
 </template>

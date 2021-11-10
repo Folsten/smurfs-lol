@@ -13,7 +13,7 @@ export const actions = {
   async loadSmurfs({ commit, state }) {
     const smurfs = await this.$axios.$get('http://localhost:1337/smurfs')
 
-    console.log(smurfs)
+    // console.log(smurfs)
 
     let bottedSmurfs = [];
     let handleveledSmurfs = [];

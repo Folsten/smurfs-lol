@@ -1,23 +1,45 @@
 export const state = () => ({
-  coupon: {
-    code: ""
-  },
+  code: "",
+  value: "",
+  discountType: "",
+  status: "wait",
+  statusText: "",
 })
 
 export const getters = {
-  coupon: ({ coupon }) => coupon
+  coupon: state => state
 }
 
 export const mutations = {
-  updateCoupon({ coupon }, value) {
-    coupon.code = value
+  updateCode(state, value) {
+    state.code = value
+    state.status = "wait"
+  },
+  setValue(state, value) {
+    state.value = value
+  },
+  setDiscountType(state, value) {
+    state.discountType = value
+  },
+  setStatus(state, value) {
+    state.status = value
+  },
+  setStatusText(state, value) {
+    state.statusText = value
   }
 }
 
 export const actions = {
-  async verifyCoupon(ctx) {
-    if (ctx.getters.coupon.code == "") {return} // если строка coupon пустая, то прервать выполнение текущей функции
-    const result = await this.$axios.$get(`http://localhost:1337/coupons/verify/${ctx.getters.coupon.code}`)
-    console.log(result)
+  async verifyCoupon({ commit, getters }) {
+    if (getters.coupon.code == "") { return } // если строка coupon пустая, то прервать выполнение текущей функции
+    // Тело функции
+    const response = await this.$axios.$get(`http://localhost:1337/coupons/verify/${getters.coupon.code}`)
+    if (response.status == "OK") {
+      commit('setValue', response.content.value)
+      commit('setDiscountType', response.content.discount_type)
+    }
+    commit('setStatus', response.status)
+    commit('setStatusText', response.statusText)
+    console.log(response)
   }
 }

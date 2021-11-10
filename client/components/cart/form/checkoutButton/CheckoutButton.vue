@@ -4,7 +4,7 @@
       type="submit"
       class="mt-4 primaryButton primaryButton_anime w-full items-center"
     >
-      <i class="fas fa-shopping-cart pr-1"></i><span>Checkout $</span>
+      <i class="fas fa-shopping-cart pr-1"></i><span>Checkout ${{totalPrice}}</span>
     </button>
     <!-- <div class="mt-4 primaryButton w-full items-center">
       <svg
@@ -31,3 +31,31 @@
     </div> -->
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    totalPrice() {
+    // итоговая стоимость в случае отсутствия активного купона
+     let basicCost = this.order.quantity * this.order.smurf.finalPrice
+    // возврат итоговой стоимости в случае активного купона с процентной скидкой
+     if (this.coupon.discountType == 'percentage' && this.coupon.status == 'OK') {
+       return (basicCost - basicCost * this.coupon.value / 100).toFixed(2)
+     }
+    // возврат итоговой стоимости в случае активного купона с фиксированной скидкой
+     if (this.coupon.discountType == 'fixed' && this.coupon.status == 'OK') {
+       return (basicCost - this.coupon.value).toFixed(2)
+     }
+    // возврат итоговой стоимости в случае отсутствия активного купона
+     return basicCost.toFixed(2)
+    },
+    ...mapGetters({
+      order: "cart/order",
+      coupon: "coupon/coupon"
+    }),
+  }
+}
+
+</script>

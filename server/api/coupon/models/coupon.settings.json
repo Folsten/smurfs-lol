@@ -36,6 +36,12 @@
     },
     "value": {
       "type": "integer"
+    },
+    "stock": {
+      "type": "string",
+      "default": "infinity",
+      "required": true,
+      "private": true
     }
   }
 }

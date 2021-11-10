@@ -5,25 +5,39 @@
       <div class="container">
         <div class="w-full z-10 text-white">
           <h2
-            class="text-primary text-lg uppercase tracking-wider font-barlow font-semibold"
+            class="
+              text-primary text-lg
+              uppercase
+              tracking-wider
+              font-barlow font-semibold
+            "
           >
             Handleveled smurfs, covered by lifetime warranty
           </h2>
           <h1
-            class="font-barlow pt-4 pb-8 text-h1 leading-h1 tracking-wide font-semibold uppercase"
+            class="
+              font-barlow
+              pt-4
+              pb-8
+              text-h1
+              leading-h1
+              tracking-wide
+              font-semibold
+              uppercase
+            "
           >
             Buy a League of Legends account
             <br />with instant delivery
           </h1>
           <div class="flex">
             <NuxtLink
-              :to="{path: '/', hash: '#products'}"
+              :to="{ path: '/', hash: '#products' }"
               v-scroll-to="'#products'"
               class="primaryButton primaryButton_anime w-36 mr-5"
               >Pick Account</NuxtLink
             >
             <NuxtLink
-              :to="{path: '/', hash: '#products'}"
+              :to="{ path: '/', hash: '#products' }"
               v-scroll-to="'#products'"
               class="secondaryButton secondaryButton_anime w-36"
               >Select Region</NuxtLink
@@ -45,7 +59,14 @@
         <ServerButtons></ServerButtons>
       </div>
       <Smurfs
-        class="container-fluid flex flex-wrap w-full max-w-ultima items-start pt-6"
+        class="
+          container-fluid
+          flex flex-wrap
+          w-full
+          max-w-ultima
+          items-start
+          pt-6
+        "
       ></Smurfs>
     </section>
     <section class="pt-6 pb-8 flex justify-center bg-primary" id="reviews">
@@ -144,18 +165,48 @@
         <div class="flex justify-center w-full container-md pt-5">
           <router-link
             :to="{ path: '/', hash: '#products' }"
-            class="primaryButton primaryButton_anime w-full bg-coloredPrimary border border-gray mr-2 group"
+            class="
+              primaryButton primaryButton_anime
+              w-full
+              bg-coloredPrimary
+              border border-gray
+              mr-2
+              group
+            "
             >Buy LOL Smurf
             <i
-              class="fas fa-angle-right pl-3 transform duration-300 sm:group-hover:translate-x-1"
+              class="
+                fas
+                fa-angle-right
+                pl-3
+                transform
+                duration-300
+                sm:group-hover:translate-x-1
+              "
             ></i>
           </router-link>
           <div
-            class="hidden secondaryButton secondaryButton_anime w-full ml-2 border group xs:flex"
+            class="
+              hidden
+              secondaryButton secondaryButton_anime
+              w-full
+              ml-2
+              border
+              group
+              xs:flex
+            "
             @click="$store.commit('contactUsModal/toggle')"
-            >Contact Us
+          >
+            Contact Us
             <i
-              class="fas fa-angle-right pl-3 transform duration-300 sm:group-hover:translate-x-1"
+              class="
+                fas
+                fa-angle-right
+                pl-3
+                transform
+                duration-300
+                sm:group-hover:translate-x-1
+              "
             ></i>
           </div>
         </div>
@@ -241,6 +292,15 @@
 
 <script>
 export default {
-  name: "Home",
+  head: {
+    title: "Buy a League of Legends Account | Smurfslol",
+    meta: [
+      {
+        name: "description",
+        content:
+          "The reliable place to buy 30+ level Unranked League of Legends & LoL accounts. All of our smurfs covered by lifetime warranty and will be delivered immediately after purchase. ",
+      },
+    ],
+  },
 };
 </script>

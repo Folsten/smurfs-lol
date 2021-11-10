@@ -1,15 +1,13 @@
 export const state = () => ({
-  customer: {
-    email: ""
-  },
+  email: ""
 })
 
 export const getters = {
-  customer: ({ customer }) => customer,
+  customer: state => state,
 }
 
 export const mutations = {
-  updateEmail({ customer }, value) {
-    customer.email = value
+  updateEmail(state, value) {
+    state.email = value
   },
 }
