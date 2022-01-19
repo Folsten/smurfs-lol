@@ -293,7 +293,7 @@
 <script>
 export default {
   head: {
-    title: "Buy a League of Legends Account | Smurfslol",
+    title: "Buy a League of Legends Account | Smurfs LOL",
     meta: [
       {
         name: "description",

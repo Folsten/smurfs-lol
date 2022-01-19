@@ -11,7 +11,7 @@ export const mutations = {
 
 export const actions = {
   async loadSmurfs({ commit, state }) {
-    const smurfs = await this.$axios.$get('http://localhost:1337/smurfs')
+    const smurfs = await this.$axios.$get('/smurfs')
 
     // console.log(smurfs)
 

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "cross-env NODE_ENV=development nuxt",
+    "build": "cross-env NODE_ENV=production nuxt build",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "generate": "cross-env NODE_ENV=production nuxt generate",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint": "yarn lint:style"
   },
@@ -17,8 +17,10 @@
     "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
+    "@nuxtjs/router-extras": "^1.1.1",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^4.2.0",
+    "cross-env": "^7.0.3",
     "postcss": "^8.3.5",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"

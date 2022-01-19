@@ -40,6 +40,6 @@ export const actions = {
     }
     commit('setStatus', response.status)
     commit('setStatusText', response.statusText)
-    console.log(response)
+    // console.log(response)
   }
 }

@@ -46,6 +46,8 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/router-extras-module
+    '@nuxtjs/router-extras',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,7 +58,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.NODE_ENV == 'development' ? 'http://localhost:1337' : "https://smurfs.lol/"
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
