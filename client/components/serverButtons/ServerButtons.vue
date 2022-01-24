@@ -32,6 +32,13 @@
 
 <script>
 export default {
+  async fetch() {
+    const servers = await this.$axios.$get("/servers");
+
+    // Сортировка серверов согласно их нумерованности в базе данных, поле order
+    servers.sort((a, b) => a.order - b.order);
+    await this.$store.commit("servers/loadServers", servers);
+  },
   methods: {
     getServerImage(server) {
       return require(`~/assets/img/servers/${server}.png`);

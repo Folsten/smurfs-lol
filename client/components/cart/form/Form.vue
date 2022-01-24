@@ -12,3 +12,9 @@
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['checkout'],
+};
+</script>

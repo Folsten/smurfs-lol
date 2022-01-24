@@ -12,13 +12,4 @@ export const mutations = {
   }
 }
 
-export const actions = {
-  async loadServers({commit, state}) {
-
-    const servers = await this.$axios.$get('http://localhost:1337/servers')
-
-    // Сортировка серверов согласно их нумерованности в базе данных, поле order
-    servers.sort((a,b) => a.order - b.order)
-    await commit('loadServers', servers)
-  }
-}
+export const actions = {}

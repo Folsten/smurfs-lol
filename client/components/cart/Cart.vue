@@ -51,7 +51,7 @@
       <div class="pt-5 flex flex-col w-full">
         <CartProduct></CartProduct>
         <CartQuantityController></CartQuantityController>
-        <CartForm></CartForm>
+        <CartForm :checkout="checkout"></CartForm>
         <div class="pt-3 text-xs text-center">
           By clicking the button, you agree to our
           <router-link class="link hover:underline" to="/terms-and-conditions"
@@ -89,7 +89,9 @@
 export default {
   methods: {
     closeCart() {},
-    checkout() {},
+    checkout() {
+      console.log('sss')
+    },
   },
 };
 </script>

@@ -7,7 +7,7 @@ export const state = () => ({
   },
   notification: {
     status: "",
-    text: "default text",
+    text: "",
   },
 })
 

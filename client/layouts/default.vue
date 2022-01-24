@@ -5,12 +5,3 @@
     <Nuxt></Nuxt>
   </div>
 </template>
-
-<script>
-export default {
-  beforeCreate() {
-    this.$store.dispatch("servers/loadServers");
-    this.$store.dispatch("smurfs/loadSmurfs");
-  },
-}
-</script>
