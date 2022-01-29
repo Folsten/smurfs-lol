@@ -2,6 +2,7 @@
   <footer
     class="
       footer
+      w-full
       pt-7
       pb-5
       flex flex-col
@@ -19,9 +20,7 @@
           lg:mr-14
           min-w-full
           items-center
-          lg:min-w-0
-          lg:items-start
-          lg:flex-1
+          lg:min-w-0 lg:items-start lg:flex-1
         "
       >
         <div>
@@ -87,9 +86,7 @@
           p-5
           min-w-full
           items-center
-          lg:min-w-0
-          lg:items-start
-          lg:flex-1
+          lg:min-w-0 lg:items-start lg:flex-1
         "
       >
         <div
@@ -113,7 +110,14 @@
             <NuxtLink
               :to="{ path: '/', hash: '#products' }"
               class="footer__link"
-              >Buy smurf</NuxtLink
+              >Buy account</NuxtLink
+            >
+          </li>
+          <li class="flex items-center whitespace-nowrap h-10">
+            <NuxtLink
+              :to="'/gifting-store'"
+              class="footer__link"
+              >Gifting store</NuxtLink
             >
           </li>
           <li class="flex items-center whitespace-nowrap h-10">
@@ -135,9 +139,7 @@
           p-5
           min-w-full
           items-center
-          lg:min-w-0
-          lg:items-start
-          lg:flex-1
+          lg:min-w-0 lg:items-start lg:flex-1
         "
       >
         <div
@@ -159,7 +161,7 @@
           </li>
           <li class="flex items-center whitespace-nowrap h-10">
             <a
-              href="skype:live:alexservicesg?add"
+              href="skype:live:bd024eca514dfc47?add"
               target="_blank"
               class="footer__link"
             >
@@ -176,12 +178,12 @@
                   d="M3 0h16a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm14.597 12.486a6.51 6.51 0 0 0 .154-1.413c0-3.636-2.988-6.584-6.677-6.584a6.8 6.8 0 0 0-1.142.097A3.89 3.89 0 0 0 7.872 4C5.735 4 4 5.709 4 7.819c0 .704.194 1.363.532 1.931-.088.427-.135.87-.135 1.323 0 3.637 2.99 6.584 6.677 6.584.418 0 .827-.038 1.223-.11a3.9 3.9 0 0 0 1.83.453C16.268 18 18 16.29 18 14.182c0-.61-.145-1.185-.403-1.696zM14.5 14.22c-.309.432-.765.773-1.357 1.015-.585.24-1.287.362-2.086.362-.959 0-1.763-.166-2.391-.495a3.1 3.1 0 0 1-1.1-.962c-.283-.402-.426-.802-.426-1.19 0-.24.093-.449.278-.62a.986.986 0 0 1 .697-.256c.229 0 .427.067.588.201.154.13.285.32.392.564.118.268.247.494.382.67.132.172.32.315.56.428.243.112.57.17.97.17.553 0 1.006-.116 1.346-.345.333-.223.494-.493.494-.822a.807.807 0 0 0-.257-.624 1.869 1.869 0 0 0-.713-.388 14.411 14.411 0 0 0-1.225-.3c-.694-.145-1.282-.318-1.75-.515-.48-.2-.865-.48-1.147-.827-.287-.355-.433-.799-.433-1.32 0-.497.153-.946.454-1.332.298-.384.734-.684 1.296-.888.554-.202 1.213-.304 1.96-.304.595 0 1.12.068 1.558.203.44.134.81.316 1.102.541.294.227.513.468.65.72.138.254.208.506.208.75a.89.89 0 0 1-.274.636.921.921 0 0 1-.685.283c-.247 0-.442-.06-.575-.177-.125-.11-.255-.28-.4-.523a2.183 2.183 0 0 0-.598-.732c-.225-.168-.6-.253-1.116-.253-.477 0-.867.094-1.156.282-.279.18-.414.386-.414.631 0 .15.043.275.134.382.094.116.228.215.397.299.176.087.357.157.538.205.185.051.496.127.923.224.541.114 1.038.243 1.476.382.446.14.83.311 1.144.513.32.206.572.468.752.783.18.318.272.707.272 1.16 0 .543-.158 1.037-.468 1.47z"
                 />
               </svg>
-              live:alexservicesg
+              live:bd024eca514dfc47
             </a>
           </li>
           <li class="flex items-center whitespace-nowrap h-10">
             <a
-              href="https://discord.gg/77uGyWJczT"
+              href="https://discord.gg/Dvh3m9B2ZG"
               target="_blank"
               class="footer__link"
             >
@@ -211,10 +213,7 @@
           min-w-full
           items-center
           text-center
-          lg:min-w-0
-          lg:text-left
-          lg:items-start
-          lg:flex-1
+          lg:min-w-0 lg:text-left lg:items-start lg:flex-1
         "
       >
         <div

@@ -1,0 +1,15 @@
+{
+  "kind": "singleType",
+  "collectionName": "payop_checkouts",
+  "info": {
+    "name": "payop-checkout",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

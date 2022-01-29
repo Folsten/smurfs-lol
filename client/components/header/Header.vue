@@ -28,9 +28,7 @@
             </div>
           </NuxtLink>
           <div class="hidden font-barlow md:flex">
-            <NuxtLink
-              :to="'/'"
-              class="pl-3 pr-3 duration-300 hover:text-text"
+            <NuxtLink :to="'/'" class="pl-3 pr-3 duration-300 hover:text-text"
               >Home</NuxtLink
             >
             <NuxtLink
@@ -38,6 +36,11 @@
               v-scroll-to="'#products'"
               class="pl-3 pr-3 duration-300 hover:text-text"
               >Buy Account</NuxtLink
+            >
+            <NuxtLink
+              :to="'/gifting-center'"
+              class="pl-3 pr-3 duration-300 hover:text-text"
+              >Gifting Center</NuxtLink
             >
             <a
               href="https://discord.gg/77uGyWJczT"

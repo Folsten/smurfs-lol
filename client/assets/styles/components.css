@@ -284,3 +284,25 @@
 .cart__form {
   width: 400px;
 }
+
+/* giftingBackground */
+
+.giftingBackground {
+  @apply absolute w-full h-full left-0 bg-cover;
+}
+
+.webp .giftingBackground {
+  background: url("../img/webp/infernal-akali-min.webp");
+  background-size: cover;
+}
+
+.no-webp .giftingBackground {
+  background: url("../img/infernal-akali-min.jpeg");
+  background-size: cover;
+}
+
+.giftingGradient {
+  @apply absolute w-full h-full;
+  content: "";
+  background: linear-gradient(90deg, rgba(7, 7, 32, 0) 0%, rgba(7, 7, 32, 0.92) 45%);
+}

@@ -62,7 +62,7 @@
           You can always contact us in any way
         </div>
       <a
-        href="https://discord.gg/77uGyWJczT"
+        href="https://discord.gg/Dvh3m9B2ZG"
         target="blank"
         class="
           primaryButton
@@ -76,7 +76,7 @@
         <i class="fab fa-discord pr-1"></i>Folsten#3709
       </a>
       <a
-        href="skype:live:alexservicesg?add"
+        href="skype:live:bd024eca514dfc47?add"
         target="blank"
         class="
           primaryButton
@@ -87,7 +87,7 @@
           w-full
           font-barlow
         "
-        ><i class="fab fa-skype pr-1"></i>Live:alexservicesg</a
+        ><i class="fab fa-skype pr-1"></i>live:bd024eca514dfc47</a
       >
       <div
         class="

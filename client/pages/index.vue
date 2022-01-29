@@ -212,6 +212,43 @@
         </div>
       </div>
     </section>
+    <section class="flex w-full mb-12 h-96 relative">
+      <div class="giftingBackground"></div>
+      <div class="giftingGradient"></div>
+      <div class="flex w-full justify-center">
+        <div class="container w-full items-center justify-center">
+          <div class="flex-col relative items-center">
+            <div class="sectionTitle">
+              GIFTING STORE!
+              <span class="text-primary">GET RIOT POINTS ~50% CHEAPER</span>
+            </div>
+            <p class="subTitle text-left mt-5 leading-loose">
+              Discover the cheapest way to buy Riot Points in league of legends
+              using our Gifting Center.<br />
+              To do it join to the our discord server and check out the full
+              information and prices!<br />
+              Also, we in our discord server, we hold regular giveaways, in
+              which absolutely anyone can win.
+            </p>
+            <div class="flex justify-center w-full">
+              <a
+                href="https://discord.gg/Dvh3m9B2ZG"
+                target="_blank"
+                class="
+                  primaryButton
+                  bg-discord
+                  hover:bg-discordDark
+                  duration-300
+                  w-2/5
+                  mt-7
+                "
+                >JOIN TO THE DISCORD SERVER</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="flex justify-center w-full pb-12">
       <div class="container flex-col items-center">
         <hr class="divider" />

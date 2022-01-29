@@ -88,9 +88,12 @@
 <script>
 export default {
   methods: {
-    closeCart() {},
-    checkout() {
-      console.log('sss')
+    async checkout() {
+      await this.$axios.$post('/payop-checkout/start', {
+        order: this.$store.state.cart.order,
+        newsletter: this.$store.state.cart.newsletter,
+        customer: this.$store.state.customer
+      })
     },
   },
 };

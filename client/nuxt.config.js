@@ -25,6 +25,10 @@ export default {
         crossorigin: "anonymous",
         defer: "",
       },
+      {
+        src: './tawk-to.js',
+        body: true
+      }
     ],
   },
 

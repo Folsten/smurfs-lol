@@ -26,6 +26,10 @@
       "type": "json",
       "required": false,
       "private": true
+    },
+    "newsletter": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

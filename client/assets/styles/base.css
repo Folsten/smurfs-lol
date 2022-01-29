@@ -7,7 +7,7 @@
   }
 
   body {
-    @apply font-roboto text-white;
+    @apply font-roboto text-white bg-primary;
   }
 }
 
