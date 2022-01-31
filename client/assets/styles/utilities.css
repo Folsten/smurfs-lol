@@ -35,6 +35,21 @@
     box-shadow: 0 0 10px 0 rgb(88, 92, 122);
   }
 
+  /* highlight */
+
+  .discord_highlight {
+    @apply duration-200;
+    -webkit-box-shadow: 0px 0px 8px 6px rgba(114, 137, 218, 0.2);
+    -moz-box-shadow: 0px 0px 8px 6px rgba(114, 137, 218, 0.2);
+    box-shadow: 0px 0px 8px 6px rgba(114, 137, 218, 0.2);
+  }
+
+  .discord_highlight:hover {
+    -webkit-box-shadow: 0px 0px 9px 9px rgba(105, 126, 202, 0.2);
+    -moz-box-shadow: 0px 0px 9px 9px rgba(105, 126, 202, 0.2);
+    box-shadow: 0px 0px 9px 9px rgba(105, 126, 202, 0.2);
+  }
+
   /* Media Queries */
 
   @media screen and (min-width: 400px) {

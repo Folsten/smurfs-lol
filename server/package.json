@@ -13,6 +13,7 @@
     "cross-env": "^7.0.3"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "knex": "0.21.18",
     "mysql": "2.18.1",
     "strapi": "3.6.8",

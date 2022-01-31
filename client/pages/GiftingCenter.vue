@@ -17,10 +17,11 @@
           href="https://discord.gg/Dvh3m9B2ZG"
           target="_blank"
           class="
+            discord_highlight
             primaryButton
             bg-discord
             hover:bg-discordDark
-            duration-300
+            duration-200
             mt-7
           "
         >
