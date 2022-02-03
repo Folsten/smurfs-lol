@@ -55,6 +55,10 @@
     "server": {
       "via": "smurfs",
       "model": "server"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

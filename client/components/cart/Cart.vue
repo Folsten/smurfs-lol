@@ -89,7 +89,7 @@
 export default {
   methods: {
     async checkout() {
-      let payopData = await this.$axios.$post('/payop-checkout/start', {
+      let payopData = await this.$axios.$post('/payments/payop/smurf', {
         order: this.$store.state.cart.order,
         newsletter: this.$store.state.cart.newsletter,
         customer: this.$store.state.customer

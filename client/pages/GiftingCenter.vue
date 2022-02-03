@@ -14,7 +14,7 @@
           50% OFF.
         </p>
         <a
-          href="https://discord.gg/Dvh3m9B2ZG"
+          :href="this.$store.state.myContacts.discordServer"
           target="_blank"
           class="
             discord_highlight

@@ -23,6 +23,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/payments/payop/smurf",
+      "handler": "payments.smurf",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/payments/payop-ipn",
+      "handler": "payments.payopIpn",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

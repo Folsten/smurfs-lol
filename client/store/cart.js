@@ -36,7 +36,6 @@ export const mutations = {
       order.quantity--;
     }
   },
-  // Работаем тут
   toggleNewsletter(state) {
     state.newsletter = !state.newsletter
   }

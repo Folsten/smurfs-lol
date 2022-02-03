@@ -25,6 +25,9 @@
       "type": "integer",
       "unique": true,
       "required": true
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

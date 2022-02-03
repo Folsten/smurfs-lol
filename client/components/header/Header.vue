@@ -1,8 +1,11 @@
 <template>
   <div>
+    <HeaderTopNotification></HeaderTopNotification>
     <header
       v-bind="$attrs"
+      ref="header"
       class="
+        duration-150
         header
         flex
         justify-center
@@ -15,6 +18,7 @@
         w-full
         z-20
       "
+      :class="{ 'mt-12': isHeaderOnTop }"
     >
       <div class="container items-center justify-between">
         <div class="flex items-center">
@@ -31,26 +35,38 @@
             <NuxtLink :to="'/'" class="pl-3 pr-3 duration-300 hover:text-text"
               >Home</NuxtLink
             >
+            <!-- <div class="ml-3 mr-3 relative dropdown1" @mouseover="showServers = true" @mouseleave="showServers = false">
+              <NuxtLink
+                :to="{ path: '/', hash: '#products' }"
+                v-scroll-to="'#products'"
+                class="pr-1 duration-200 hover:text-text"
+                >Buy Account</NuxtLink
+              >
+              <i class="fas fa-chevron-down text-xs"></i>
+              <transition name="fade">
+                <HeaderDropDownMenu v-show="showServers" :contentType="'smurfs'"></HeaderDropDownMenu>
+              </transition>
+            </div> -->
             <NuxtLink
               :to="{ path: '/', hash: '#products' }"
               v-scroll-to="'#products'"
-              class="pl-3 pr-3 duration-300 hover:text-text"
+              class="pl-3 pr-3 duration-200 hover:text-text"
               >Buy Account</NuxtLink
             >
             <NuxtLink
               :to="'/gifting-center'"
-              class="pl-3 pr-3 duration-300 hover:text-text"
+              class="pl-3 pr-3 duration-200 hover:text-text"
               >Gifting Center</NuxtLink
             >
             <a
-              href="https://discord.gg/77uGyWJczT"
-              class="pl-3 pr-3 duration-300 hover:text-text"
+              :href="this.$store.state.myContacts.discordServer"
+              class="pl-3 pr-3 duration-200 hover:text-text"
               target="_blank"
             >
               Discord
             </a>
             <a
-              class="pl-3 pr-3 duration-300 hover:text-text"
+              class="pl-3 pr-3 duration-200 hover:text-text"
               @click="$store.commit('contactUsModal/toggle')"
               >Contact Us</a
             >
@@ -73,16 +89,31 @@
       </div>
     </header>
     <div class="pt-16"></div>
-    <ResponsiveMenu></ResponsiveMenu>
+    <HeaderResponsiveMenu></HeaderResponsiveMenu>
   </div>
 </template>
 
 <script>
-import ResponsiveMenu from "@/components/header/responsiveMenu/ResponsiveMenu";
-
 export default {
-  components: {
-    ResponsiveMenu,
+  data: function () {
+    return {
+      isHeaderOnTop: true,
+      showServers: false,
+    };
+  },
+  mounted() {
+    this.scroll();
+  },
+  methods: {
+    scroll() {
+      window.onscroll = () => {
+        if (window.pageYOffset == 0) {
+          this.isHeaderOnTop = true;
+        } else {
+          this.isHeaderOnTop = false;
+        }
+      };
+    },
   },
 };
 </script>

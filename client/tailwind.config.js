@@ -24,6 +24,7 @@ module.exports = {
       link: "#08A6FF",
       text: "#a0a5aa",
       textAction: '#cddcfe',
+      black: 'black',
       white: "white",
       whiteDarker: '#d5d5d5',
       whiteDarkest: '',
@@ -85,7 +86,7 @@ module.exports = {
         'ultima': '1920px'
       },
       maxHeight: {
-        'almost': '94vh' 
+        'almost': '94vh'
       },
       letterSpacing: {
         'widest2xl': '0.2rem',

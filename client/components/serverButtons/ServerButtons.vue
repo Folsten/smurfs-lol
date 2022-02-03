@@ -32,11 +32,15 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(this.$store.getters['servers/getServersWithSmurfs'])
+  },
   async fetch() {
     const servers = await this.$axios.$get("/servers");
 
     // Сортировка серверов согласно их нумерованности в базе данных, поле order
     servers.sort((a, b) => a.order - b.order);
+
     await this.$store.commit("servers/loadServers", servers);
   },
   methods: {

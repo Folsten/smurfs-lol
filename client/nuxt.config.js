@@ -72,7 +72,6 @@ export default {
 
   router: {
     scrollBehavior: async function (to, from, savedPosition) {
-      console.log('sss')
       if (savedPosition) {
         return savedPosition;
       }
@@ -102,8 +101,8 @@ export default {
 
       return { x: 0, y: 0 };
     },
-    beforeRouteUpdate: async function(to, from, next) {
-      console.log('beforerouteupdate'),
+    beforeRouteUpdate: async function (to, from, next) {
+      console.log('beforerouteupdate')
       next()
     }
   }

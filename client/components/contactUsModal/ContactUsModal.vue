@@ -62,7 +62,7 @@
           You can always contact us in any way
         </div>
       <a
-        href="https://discord.gg/Dvh3m9B2ZG"
+        :href="this.$store.state.myContacts.discordServer"
         target="blank"
         class="
           primaryButton
@@ -73,10 +73,10 @@
           font-barlow
         "
       >
-        <i class="fab fa-discord pr-1"></i>Folsten#3709
+        <i class="fab fa-discord pr-1"></i>{{this.$store.state.myContacts.discordProfile}}
       </a>
       <a
-        href="skype:live:bd024eca514dfc47?add"
+        :href="`skype:${this.$store.state.myContacts.skype}?add`"
         target="blank"
         class="
           primaryButton
@@ -87,7 +87,7 @@
           w-full
           font-barlow
         "
-        ><i class="fab fa-skype pr-1"></i>live:bd024eca514dfc47</a
+        ><i class="fab fa-skype pr-1"></i>{{this.$store.state.myContacts.skype}}</a
       >
       <div
         class="
@@ -102,9 +102,9 @@
       >
         Or contact us at
         <a
-          href="mailto:support@smurfs.lol"
+          :href="`mailto:${this.$store.state.myContacts.email}`"
           class="text-whiteDarker duration-300 hover:text-white"
-          >support@smurfs.lol</a
+          >{{this.$store.state.myContacts.email}}</a
         >
       </div>
     </div>

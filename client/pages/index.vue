@@ -232,7 +232,7 @@
             </p>
             <div class="flex justify-center w-full">
               <a
-                href="https://discord.gg/Dvh3m9B2ZG"
+                :href="this.$store.state.myContacts.discordServer"
                 target="_blank"
                 class="
                   discord_highlight

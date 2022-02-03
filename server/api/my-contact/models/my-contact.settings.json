@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_contacts",
+  "info": {
+    "name": "MyContact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "discordProfile": {
+      "type": "string"
+    },
+    "discordServer": {
+      "type": "string"
+    },
+    "skype": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    }
+  }
+}

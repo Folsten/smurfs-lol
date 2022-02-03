@@ -30,6 +30,10 @@
     "newsletter": {
       "type": "boolean",
       "default": false
+    },
+    "isPaymentCredited": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
