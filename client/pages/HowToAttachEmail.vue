@@ -15,8 +15,8 @@
         </div>
         <div class="divider dividerGradient w-full mt-12"></div>
         <div class="textSheet">
-          <h3 class="textSheet__title">General information</h3>
-          <p class="textSheet__text">
+          <!-- <h3 class="textSheet__title">General information</h3> -->
+          <!-- <p class="textSheet__text">
             In case after purhase your account already have our email attached,
             then
             <a class="link hover:underline" href="/how-to-change-email"
@@ -24,7 +24,7 @@
             >
             Follow current guide only if your account don't have email attached.
             Procedure is very simple and shouldn't take more than 3 minutes.
-          </p>
+          </p> -->
           <h3 class="textSheet__title">
             Step 1: login on the account via the official Riot Games website
           </h3>

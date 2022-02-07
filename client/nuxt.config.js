@@ -26,9 +26,17 @@ export default {
         defer: "",
       },
       {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-S5G6PWY4BF',
+        sameSite: 'none',
+        async: "",
+      },
+      {
+        src: './gtag.js',
+      },
+      {
         src: './tawk-to.js',
         body: true
-      }
+      },
     ],
   },
 

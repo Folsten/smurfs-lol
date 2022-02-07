@@ -30,7 +30,7 @@ h5 {
 }
 
 .container {
-  @apply flex relative flex-wrap justify-center pl-3 pr-3 ml-3 mr-3 w-full;
+  @apply flex relative flex-wrap justify-center ml-6 mr-6 w-full;
   max-width: 1300px;
 }
 
