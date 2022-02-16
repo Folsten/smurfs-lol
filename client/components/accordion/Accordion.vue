@@ -28,12 +28,12 @@ export default {
         answer: `Account details will be sent to your email right after purchase. Our automatic delivery system work 24/7.`,
         isOpen: false,
       },
-      {
-        question:
-          "What the difference between botted and handleveled accounts?",
-        answer: `<b>Handleveled</b> accounts were leveled in the usual way by a real person and it makes them absolutely safe. <b>Botted</b> accounts, also called lol smurfs, in turn, were leveled by our special software and always have clean ranked MMR, which means they were unranked during all League of Legends seasons and no ranked games have been played on it.`,
-        isOpen: false,
-      },
+      // {
+      //   question:
+      //     "What the difference between botted and handleveled accounts?",
+      //   answer: `<b>Handleveled</b> accounts were leveled in the usual way by a real person and it makes them absolutely safe. <b>Botted</b> accounts, also called lol smurfs, in turn, were leveled by our special software and always have clean ranked MMR, which means they were unranked during all League of Legends seasons and no ranked games have been played on it.`,
+      //   isOpen: false,
+      // },
       {
         question: "Can I play ranked matches right after purchase?",
         answer: `Sure, if the account you bought has at least 20 champions you can start ranked games right away!`,

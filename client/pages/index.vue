@@ -12,7 +12,7 @@
               font-barlow font-semibold
             "
           >
-            Handleveled smurfs, covered by lifetime warranty
+            Lol smurfs, covered by lifetime warranty
           </h2>
           <h1
             class="
