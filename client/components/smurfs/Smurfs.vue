@@ -2,7 +2,7 @@
   <ul>
     <SmurfsSmurf
       v-for="smurf in list"
-      :key="smurf._id"
+      :key="smurf.id"
       :smurf="smurf"
     ></SmurfsSmurf>
     <li
@@ -17,10 +17,16 @@
 
 <script>
 export default {
+  // mounted: function() {
+  //   setTimeout(() => {
+  //     console.log(this.list);
+  //   }, 3000)
+  // },
   async fetch() {
-    const smurfs = await this.$axios.$get("/smurfs");
+    const smurfs = await this.$axios.$get("/smurfs?populate=server");
     let bottedSmurfs = [];
     let handleveledSmurfs = [];
+    console.log(smurfs)
 
     // Отбор только валидных смурфов для дальнейшего использования
     // smurf.server == проверка, что в strapi у smurf сущности указана связь с каким-либо сервером
@@ -43,7 +49,7 @@ export default {
 
     // В зависимости от того, что с чем конкатанировать меняется порядок отображения
     // Смурфов на странице, либо сначала botted, либо сначала handleveled
-    await this.$store.commit("smurfs/loadSmurfs", bottedSmurfs.concat(handleveledSmurfs));
+    this.$store.commit("smurfs/loadSmurfs", bottedSmurfs.concat(handleveledSmurfs));
   },
   computed: {
     list() {

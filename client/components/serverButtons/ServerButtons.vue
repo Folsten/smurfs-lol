@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center flex-wrap pt-5">
-    <div v-for="server in $store.state.servers.servers" :key="server.acronym">
+    <div v-for="server in $store.state.servers.servers" :key="server.attributes.acronym">
       <div
         class="
           flex flex-col
@@ -19,12 +19,12 @@
         "
         :class="{
           serverSwitcher_active:
-            $store.state.servers.currentServer === server.acronym,
+            $store.state.servers.currentServer === server.attributes.acronym,
         }"
-        @click="$store.commit('servers/setServer', server.acronym)"
+        @click="$store.commit('servers/setServer', server.attributes.acronym)"
       >
-        <img :src="getServerImage(server.acronym)" class="h-14" />
-        <span class="pt-1 uppercase">{{ server.acronym }}</span>
+        <img :src="getServerImage(server.attributes.acronym)" class="h-14" />
+        <span class="pt-1 uppercase">{{ server.attributes.acronym }}</span>
       </div>
     </div>
   </div>
@@ -32,16 +32,14 @@
 
 <script>
 export default {
-  mounted() {
-    console.log(this.$store.getters['servers/getServersWithSmurfs'])
-  },
   async fetch() {
-    const servers = await this.$axios.$get("/servers");
+    const getServers = await this.$axios.$get("/servers");
+    const servers = getServers.data;
 
     // Сортировка серверов согласно их нумерованности в базе данных, поле order
     servers.sort((a, b) => a.order - b.order);
 
-    await this.$store.commit("servers/loadServers", servers);
+    this.$store.commit("servers/loadServers", servers);
   },
   methods: {
     getServerImage(server) {

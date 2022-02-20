@@ -35,7 +35,7 @@
     />
     <div
       @click="$store.commit('cart/increaseQuantity')"
-      :class="{ hidden: getOrder.quantity == getOrder.smurf.stock || getOrder.quantity == 10 }"
+      :class="{ hidden: getOrder.quantity == getOrder.smurf.credentials || getOrder.quantity == 10 }"
       class="
         ml-2
         cursor-pointer
@@ -57,6 +57,11 @@
 import { mapGetters } from "vuex";
 
 export default {
+  mounted: function() {
+    setTimeout(() => {
+      console.log(this.getOrder.smurf);
+    }, 5000)
+  },
   computed: {
     ...mapGetters({
       getOrder: "cart/order",
