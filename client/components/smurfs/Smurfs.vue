@@ -26,7 +26,6 @@ export default {
     const smurfs = await this.$axios.$get("/smurfs?populate=server");
     let bottedSmurfs = [];
     let handleveledSmurfs = [];
-    console.log(smurfs)
 
     // Отбор только валидных смурфов для дальнейшего использования
     // smurf.server == проверка, что в strapi у smurf сущности указана связь с каким-либо сервером

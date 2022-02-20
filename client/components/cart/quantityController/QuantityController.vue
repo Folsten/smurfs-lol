@@ -57,11 +57,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  mounted: function() {
-    setTimeout(() => {
-      console.log(this.getOrder.smurf);
-    }, 5000)
-  },
   computed: {
     ...mapGetters({
       getOrder: "cart/order",
