@@ -1,20 +1,20 @@
 {
-  "name": "server-v-4",
+  "name": "strapi-server",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "pm2": "pm2 start server.js",
-    "build": "strapi build",
+    "develop": "cross-env NODE_ENV=development strapi develop",
+    "start": "cross-env NODE_ENV=production strapi start",
+    "pm2": "cross-env NODE_ENV=production pm2 start server.js",
+    "build": "cross-env NODE_ENV=production strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.1.0",
-    "@strapi/plugin-users-permissions": "4.1.0",
     "@strapi/plugin-i18n": "4.1.0",
+    "@strapi/plugin-users-permissions": "4.1.0",
+    "@strapi/strapi": "4.1.0",
+    "cross-env": "^7.0.3",
     "mysql": "2.18.1"
   },
   "author": {
