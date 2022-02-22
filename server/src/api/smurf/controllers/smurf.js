@@ -15,7 +15,8 @@ module.exports = createCoreController('api::smurf.smurf', ({ strapi }) => ({
     let processedSmurfs = [];
 
     data.forEach(element => {
-      if (element.credentials != '') {
+      console.log(element.credentials)
+      if (element.credentials != null) {
         element.credentials = element.credentials.split('\n').length;
         processedSmurfs.push(element);
       }
