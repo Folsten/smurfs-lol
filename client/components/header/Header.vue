@@ -109,6 +109,9 @@ export default {
       window.onscroll = () => {
         this.setAbsolutePositions();
       };
+      window.onresize = () => {
+        this.setAbsolutePositions();
+      }
     },
     setAbsolutePositions() {
       if (window.pageYOffset > 0) {

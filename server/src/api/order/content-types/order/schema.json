@@ -36,6 +36,11 @@
     "delivered_accounts": {
       "type": "richtext",
       "private": true
+    },
+    "coupon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::coupon.coupon"
     }
   }
 }

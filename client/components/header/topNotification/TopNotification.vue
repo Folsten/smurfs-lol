@@ -2,33 +2,44 @@
   <div
     ref="headerTopNotification"
     class="
-      md:flex
+      sm:flex
+      hidden
       justify-center
+      items-center
+      pb-3
+      pt-3
+      text-sm
       w-full
-      pt-2
-      pb-2
       headerTopNotification
-      bg-coloredSecondary
+      bg-black
     "
   >
     <div class="container justify-between items-center flex-nowrap">
       <span class="text-white"
-        >🔥 Join our discord for regular giveaways and access to our Gifting
-        Store, to buy Riot Points 50% cheaper!</span
+        >🎁 Join our discord for regular giveaways and access to our Gifting
+        Store to buy Riot Points 50% cheaper!</span
       >
       <a
         :href="this.$store.state.myContacts.discordServer"
         target="_blank"
         class="
+          text-sm
           primaryButton
           whitespace-nowrap
-          bg-white
-          text-black
-          h-8
-          rounded-full
+          bg-discord
+          hover:bg-discordDark
+          rounded-main
+          h-auto
+          flex
+          ml-4
+          pt-1
+          pb-1
+          duration-200
         "
-        >Join to our community!</a
+        ><i class="fab fa-discord pr-1"></i
+        ><span>Join to our community</span></a
       >
     </div>
   </div>
+  <!-- <div></div> -->
 </template>

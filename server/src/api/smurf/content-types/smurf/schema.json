@@ -59,7 +59,8 @@
       "inversedBy": "smurfs"
     },
     "credentials": {
-      "type": "richtext"
+      "type": "richtext",
+      "private": true
     }
   }
 }

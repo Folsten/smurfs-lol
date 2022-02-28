@@ -7,6 +7,14 @@ module.exports = {
       config: {
         auth: false,
       }
+    },
+    {
+      method: 'POST',
+      path: '/checkout/kappa',
+      handler: 'checkout.kappa',
+      config: {
+        auth: false,
+      }
     }
   ]
 }

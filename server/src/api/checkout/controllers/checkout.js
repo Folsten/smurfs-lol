@@ -3,7 +3,6 @@ const crypto = require('crypto');
 
 module.exports = {
   async smurf(ctx) {
-    console.log('work!');
     try {
       const body = ctx.request.body
 
@@ -14,8 +13,9 @@ module.exports = {
           "smurf": body.order.smurf.id,
           "quantity": body.order.quantity,
           "newsletter": body.newsletter,
+          "coupon": body.coupon.id,
         },
-        populate: ['smurf'],
+        populate: ['smurf', 'coupon']
       })
 
       // Создание корректной сигнатуры для получения инвойса в дальнейшем
@@ -64,5 +64,11 @@ module.exports = {
       ctx.status = 400;
       ctx.body = 'error';
     }
+  },
+  kappa(ctx) {
+    console.log('ssssss');
+    strapi.service('api::payment.payment')
+    ctx.status = 200;
+    ctx.body = 'ok';
   }
 }

@@ -1,13 +1,27 @@
 export const actions = {
   async nuxtServerInit({ commit }, { req }) {
-    const response = await this.$axios.$get("/my-contact").catch(error => {
+    // myContact
+    let myContactResponse = this.$axios.$get("/my-contact").catch(error => {
       console.log("request to my-contact from store/index.js file failed", error);
     })
-    if (response) {
-      commit('myContacts/setDiscordProfile', response.data.attributes.discordProfile);
-      commit('myContacts/setDiscordServer', response.data.attributes.discordServer);
-      commit('myContacts/setSkype', response.data.attributes.skype);
-      commit('myContacts/setEmail', response.data.attributes.email);
+    // global
+    let globalResponse = this.$axios.$get("/global").catch(error => {
+      console.log("request to my-contact from store/index.js file failed", error);
+    })
+
+    let myContact = await myContactResponse;
+    let global = await globalResponse;
+
+    if (myContact && global) {
+      //myContact
+      commit('myContacts/setDiscordProfile', myContact.data.attributes.discordProfile);
+      commit('myContacts/setDiscordServer', myContact.data.attributes.discordServer);
+      commit('myContacts/setSkype', myContact.data.attributes.skype);
+      commit('myContacts/setEmail', myContact.data.attributes.email);
+      //global
+      commit('global/setMaintenance', global.data.attributes.maintenance);
+      commit('global/setMaxSmurfsCheckout', global.data.attributes.maxSmurfsCheckout);
     }
+
   }
 }

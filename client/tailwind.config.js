@@ -49,6 +49,7 @@ module.exports = {
       coloredSecondaryDark: '',
       success: '#41a153',
       error: '#ff4e50',
+      black: '#000000',
       whiteDark: '',
       white: '#ffffff',
       discord: '#7289da',

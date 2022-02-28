@@ -1,4 +1,5 @@
 export const state = () => ({
+  id: "",
   code: "",
   value: "",
   discountType: "",
@@ -14,6 +15,9 @@ export const mutations = {
   updateCode(state, value) {
     state.code = value
     state.status = "wait"
+  },
+  setId(state, value) {
+    state.id = value
   },
   setValue(state, value) {
     state.value = value
@@ -36,6 +40,7 @@ export const actions = {
     const response = await this.$axios.$get(`/coupon/verify?coupon=${getters.coupon.code}`)
     console.log(response);
     if (response.status == "OK") {
+      commit('setId', response.content.id)
       commit('setValue', response.content.value)
       commit('setDiscountType', response.content.discount_type)
     }

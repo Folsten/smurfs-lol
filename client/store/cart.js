@@ -27,9 +27,7 @@ export const mutations = {
     order.smurf = smurf
   },
   increaseQuantity({ order }) {
-    if (order.quantity < 10) {
-      order.quantity++;
-    }
+    order.quantity++;
   },
   decreaseQuantity({ order }) {
     if (order.quantity > 1) {

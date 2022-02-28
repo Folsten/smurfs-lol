@@ -71,7 +71,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.NODE_ENV == 'development' ? 'http://localhost:1337/api' : "http://localhost:1337/api"
+    baseURL: process.env.NODE_ENV == 'development' ? 'http://localhost:1337/api' : "https://smurfs.lol/api"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

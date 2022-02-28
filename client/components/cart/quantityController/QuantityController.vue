@@ -35,7 +35,7 @@
     />
     <div
       @click="$store.commit('cart/increaseQuantity')"
-      :class="{ hidden: getOrder.quantity == getOrder.smurf.credentials || getOrder.quantity == 10 }"
+      :class="{ hidden: getOrder.quantity == getOrder.smurf.stock || getOrder.quantity == $store.state.global.maxSmurfsCheckout }"
       class="
         ml-2
         cursor-pointer
