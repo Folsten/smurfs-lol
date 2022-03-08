@@ -1,74 +1,32 @@
-const axios = require('axios').default;
-const crypto = require('crypto');
+const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = {
+module.exports = createCoreController('api::checkout.checkout', ({ strapi }) => ({
   async smurf(ctx) {
     try {
       const body = ctx.request.body
 
-      // Создание и добавление заказа в БД с актуальными данными из checkout формы
-      let order = await strapi.db.query('api::order.order').create({
-        data: {
-          "email": body.customer.email,
-          "smurf": body.order.smurf.id,
-          "quantity": body.order.quantity,
-          "newsletter": body.newsletter,
-          "coupon": body.coupon.id,
-        },
-        populate: ['smurf', 'coupon']
-      })
+      const isSmurfValid = await strapi.service('api::smurf.smurf').validate(body.order.smurf);
+      const isCouponValid = body.coupon == '' ? true : await strapi.service('api::coupon.coupon').validate(body.coupon);
 
-      // Создание корректной сигнатуры для получения инвойса в дальнейшем
-      let signatureData = order.quantity * order.smurf.finalPrice + ':' + 'USD' + ':' + order.id.toString() + ":" + '59a040f69f5301aed93dd367'
-      const sha256 = crypto.createHash("sha256");
-      sha256.update(signatureData, "utf8");
-      const signature_sha256 = sha256.digest("hex");
-
-      //  Получение инвойса, используя ранее созданную сигнатуру и прочие данные из формы
-      let payopInvoice = await axios.post('https://payop.com/v1/invoices/create', {
-        "publicKey": "application-ee1e2f5f-3586-4761-843a-94765ae4fb5d",
-        "order": {
-          "id": order.id.toString(),
-          "amount": order.quantity * order.smurf.finalPrice,
-          "currency": "USD",
-          "items": [
-            {
-              "id": order.smurf.id,
-              "name": order.smurf.title,
-              "price": order.smurf.finalPrice
-            }
-          ],
-          "description": order.smurf.resource
-        },
-        "signature": signature_sha256,
-        "payer": {
-          "email": order.email,
-          "phone": "",
-          "name": "",
-          "extraFields": {}
-        },
-        "language": "en",
-        "resultUrl": `https://smurfs.lol/payment-completed?orderid=${order.smurf.id}`,
-        "failPath": `https://smurfs.lol/payment-rejected?orderid=${order.smurf.id}`,
-        "metadata": {}
-      }).then(function (response) {
-        ctx.status = 200
-        ctx.body = response.data
-      }).catch(function (error) {
-        console.log(error)
-        ctx.status = 400
-        ctx.body = error
-      })
+      if (isSmurfValid && isCouponValid) {
+        // Создание и добавление заказа в БД с актуальными данными из checkout формы
+        let order = await strapi.db.query('api::order.order').create({
+          data: {
+            "email": body.customer.email,
+            "smurf": body.order.smurf.id,
+            "quantity": body.order.quantity,
+            "newsletter": body.newsletter,
+            "coupon": body.coupon.id,
+          },
+          populate: ['smurf', 'coupon']
+        })
+        const signature = await strapi.service('api::payment.payop').generateSignature(order);
+        return await strapi.service('api::payment.payop').requestPayopInvoice(order, signature);
+      }
     } catch (err) {
-      console.log(err);
-      ctx.status = 400;
+      ctx.status = err.response.status;
+      console.log(err.response.data);
       ctx.body = 'error';
     }
-  },
-  kappa(ctx) {
-    console.log('ssssss');
-    strapi.service('api::payment.payment')
-    ctx.status = 200;
-    ctx.body = 'ok';
   }
-}
+}))

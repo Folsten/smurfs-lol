@@ -8,7 +8,8 @@
     "start": "cross-env NODE_ENV=production strapi start",
     "pm2": "cross-env NODE_ENV=production pm2 start server.js",
     "build": "cross-env NODE_ENV=production strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "generate": "strapi generate"
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.1.0",

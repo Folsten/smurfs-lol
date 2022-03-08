@@ -48,9 +48,6 @@ export default {
 
     // В зависимости от того, что с чем конкатанировать меняется порядок отображения
     // Смурфов на странице, либо сначала botted, либо сначала handleveled
-    console.log(' - - - - - - - - - - - - - - - - ')
-    console.log(bottedSmurfs)
-    console.log(' - - - - - - - - - - - - - - - - ')
     this.$store.commit("smurfs/loadSmurfs", bottedSmurfs.concat(handleveledSmurfs));
   },
   computed: {

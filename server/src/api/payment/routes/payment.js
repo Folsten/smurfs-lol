@@ -1,12 +1,9 @@
-module.exports = {
-  routes: [
-    {
-      method: 'POST',
-      path: '/payment/payop/ipn',
-      handler: 'payop.ipn',
-      config: {
-        auth: false,
-      }
-    }
-  ]
-}
+'use strict';
+
+/**
+ * payment router.
+ */
+
+const { createCoreRouter } = require('@strapi/strapi').factories;
+
+module.exports = createCoreRouter('api::payment.payment');
