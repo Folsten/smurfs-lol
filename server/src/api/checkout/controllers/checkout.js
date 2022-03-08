@@ -5,6 +5,7 @@ module.exports = createCoreController('api::checkout.checkout', ({ strapi }) => 
     try {
       const body = ctx.request.body
 
+      console.log('coupon in checkout.js file -', body.coupon);
       const isSmurfValid = await strapi.service('api::smurf.smurf').validate(body.order.smurf);
       const isCouponValid = body.coupon == '' ? true : await strapi.service('api::coupon.coupon').validate(body.coupon);
 
