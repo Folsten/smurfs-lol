@@ -24,7 +24,7 @@ module.exports = createCoreController('api::checkout.checkout', ({ strapi }) => 
         return await strapi.service('api::payment.payop').requestPayopInvoice(order, signature);
       }
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
       ctx.body = 'error';
     }
   }
