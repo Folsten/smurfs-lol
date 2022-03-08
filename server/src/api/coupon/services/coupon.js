@@ -4,9 +4,8 @@ const { createCoreService } = require('@strapi/strapi').factories;
 
 module.exports = createCoreService('api::coupon.coupon', ({ strapi }) => ({
   async validate(coupon) {
-    console.log('coupon in coupon.js file -', coupon);
     const dbCoupon = await strapi.service('api::coupon.coupon').findOne(coupon.id, coupon);
-    if (coupon.code == dbCoupon.code && coupon.value == dbCoupon.value && coupon.discountType == dbCoupon.discountType) {
+    if (coupon.code == dbCoupon.code && coupon.value == dbCoupon.value && coupon.discountType == dbCoupon.discount_type) {
       return true;
     } else {
       return false;

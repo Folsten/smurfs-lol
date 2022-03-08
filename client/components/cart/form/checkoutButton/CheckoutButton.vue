@@ -46,7 +46,12 @@ export default {
      }
     // возврат итоговой стоимости в случае активного купона с фиксированной скидкой
      if (this.coupon.discountType == 'fixed' && this.coupon.status == 'OK') {
-       return (basicCost - this.coupon.value).toFixed(2)
+       let result = basicCost - this.coupon.value;
+       if (result < 0.1) {
+         return 0.1
+       } else {
+         return result.toFixed(2);
+       }
      }
     // возврат итоговой стоимости в случае отсутствия активного купона
      return basicCost.toFixed(2)

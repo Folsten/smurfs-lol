@@ -76,10 +76,10 @@ export default {
     resultContent() {
       if (this.coupon.status == "OK") {
         if (this.coupon.discountType == "percentage") {
-          return this.coupon.value + "% Coupon Applied";
+          return this.coupon.value + "% Coupon applied";
         }
         if (this.coupon.discountType == "fixed") {
-          return "$" + this.coupon.value + " Discount Applied";
+          return "$" + this.coupon.value + " Coupon applied";
         }
       } else {
         return "Wrong Coupon";

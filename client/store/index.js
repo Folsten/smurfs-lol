@@ -2,11 +2,13 @@ export const actions = {
   async nuxtServerInit({ commit }, { req }) {
     // myContact
     let myContactResponse = this.$axios.$get("/my-contact").catch(error => {
-      console.log("request to my-contact from store/index.js file failed", error);
+      console.log("request to my-contact from store/index.js file failed");
+      console.log(error);
     })
     // global
     let globalResponse = this.$axios.$get("/global").catch(error => {
-      console.log("request to my-contact from store/index.js file failed", error);
+      console.log("request to my-contact from store/index.js file failed");
+      console.log(error);
     })
 
     let myContact = await myContactResponse;

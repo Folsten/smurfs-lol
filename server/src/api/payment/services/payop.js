@@ -8,7 +8,7 @@ const crypto = require('crypto');
 module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
   // Создание корректной сигнатуры для получения инвойса в дальнейшем
   async generateSignature(order) {
-    let signatureData = order.quantity * order.smurf.finalPrice + ':' + 'USD' + ':' + order.id.toString() + ":" + '59a040f69f5301aed93dd367'
+    let signatureData = order.cost + ':' + 'USD' + ':' + order.id.toString() + ":" + '59a040f69f5301aed93dd367'
     const sha256 = crypto.createHash("sha256");
     sha256.update(signatureData, "utf8");
     return sha256.digest("hex");
@@ -19,7 +19,7 @@ module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
       "publicKey": "application-ee1e2f5f-3586-4761-843a-94765ae4fb5d",
       "order": {
         "id": order.id.toString(),
-        "amount": order.quantity * order.smurf.finalPrice,
+        "amount": order.cost,
         "currency": "USD",
         "items": [
           {
