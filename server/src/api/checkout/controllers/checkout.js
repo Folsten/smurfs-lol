@@ -16,7 +16,7 @@ module.exports = createCoreController('api::checkout.checkout', ({ strapi }) => 
             "smurf": body.order.smurf.id,
             "quantity": body.order.quantity,
             "newsletter": body.newsletter,
-            "coupon": body.coupon.id,
+            "coupon": '',
           },
           populate: ['smurf', 'coupon']
         })
