@@ -89,11 +89,12 @@
 export default {
   methods: {
     async checkout() {
+      console.log(this.$store.state.coupon);
       let payopData = await this.$axios.$post('/checkout/smurf', {
         order: this.$store.state.cart.order,
         newsletter: this.$store.state.cart.newsletter,
         customer: this.$store.state.customer,
-        coupon: this.$store.state.coupon.status == 'OK' ? this.$store.state.coupon : 'fu'
+        coupon: this.$store.state.coupon.status == 'OK' ? this.$store.state.coupon : 'fuu'
       })
       if (payopData.status == 1) {
         window.location.replace("https://checkout.payop.com/en/payment/" + payopData.data);
