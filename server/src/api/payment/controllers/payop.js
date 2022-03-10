@@ -33,6 +33,8 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
             credentials: restAccountCredentials
           }
         })
+        console.log(order.email);
+        try {
         await strapi
           .plugin('email')
           .service('email')
@@ -43,6 +45,9 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
             text: accountsForDelivery,
             html: accountsForDelivery,
           });
+        } catch(err) {
+          console.log(err)
+        }
       }
       ctx.status = 200
       ctx.body = 'ok'
