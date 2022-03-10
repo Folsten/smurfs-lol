@@ -33,17 +33,17 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
             credentials: restAccountCredentials
           }
         })
+        await strapi
+          .plugin('email')
+          .service('email')
+          .send({
+            to: order.email,
+            from: 'support@smurfs.lol',
+            subject: 'Account(s) Details',
+            text: accountsForDelivery,
+            html: accountsForDelivery,
+          });
       }
-      await strapi
-      .plugin('email')
-      .service('email')
-      .send({
-        to: order.email,
-        from: 'support@smurfs.lol',
-        subject: 'Account(s) Details',
-        text: accountsForDelivery,
-        html: accountsForDelivery,
-      });
       ctx.status = 200
       ctx.body = 'ok'
     } catch (err) {
