@@ -7,7 +7,7 @@
     ></SmurfsSmurf>
     <li
       class="font-bold text-error text-center"
-      v-if="this.list.length == 0 && this.$store.state.smurfs.smurfs.length > 0"
+      v-if="this.list.length == 0"
     >
       At the moment there is no available accounts in selected region. Please,
       select another region or visit website later.
@@ -17,11 +17,6 @@
 
 <script>
 export default {
-  // mounted: function() {
-  //   setTimeout(() => {
-  //     console.log(this.list);
-  //   }, 3000)
-  // },
   async fetch() {
     const smurfs = await this.$axios.$get("/smurfs");
     let bottedSmurfs = [];
