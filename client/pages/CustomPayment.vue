@@ -23,7 +23,7 @@
             class="mt-3 text-black h-10 rounded-main pl-3 pr-3 bg-white"
           >
             <option>USD</option>
-            <option>EURO</option>
+            <option>EUR</option>
           </select>
           <button
             type="submit"
