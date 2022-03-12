@@ -64,7 +64,7 @@ module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
           "amount": amount,
           "currency": currency,
           "items": [],
-          "description": 'Payment for Riot Points in League of Legends'
+          "description": 'Payment for Riot Points in League of Legends (Delivery via Gifting system)'
         },
         "signature": signature,
         "payer": {

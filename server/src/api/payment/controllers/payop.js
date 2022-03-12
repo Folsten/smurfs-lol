@@ -7,7 +7,7 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
     try {
       const body = ctx.request.body;
       console.log('IPN request')
-      if (body.transaction.state == 5) {
+      if (body.transaction.state == 2) {
         let order = await strapi.db.query('api::order.order').findOne({
           where: { id: body.transaction.order.id },
           populate: ['smurf', 'coupon']
