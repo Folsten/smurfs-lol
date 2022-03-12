@@ -7,7 +7,8 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
     try {
       const body = ctx.request.body;
       console.log('IPN request')
-      if (body.transaction.state == 2) {
+      console.log(body);
+      if (body.transaction.state == 5) {
         let order = await strapi.db.query('api::order.order').findOne({
           where: { id: body.transaction.order.id },
           populate: ['smurf', 'coupon']
@@ -33,20 +34,24 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
             credentials: restAccountCredentials
           }
         })
-        try {
-          await strapi
-            .plugin('email')
-            .service('email')
-            .send({
-              from: 'support@smurfs.lol',
-              to: order.email,
-              subject: 'Account(s) Details',
-              text: accountsForDelivery,
-              html: accountsForDelivery,
-            });
-        } catch (err) {
-          console.log(err)
-        }
+        await strapi
+          .plugin('email')
+          .service('email')
+          .send({
+            from: 'no-reply@smurfs.lol',
+            to: order.email,
+            subject: 'Account(s) Details',
+            text: accountsForDelivery,
+          });
+        await strapi
+          .plugin('email')
+          .service('email')
+          .send({
+            from: 'no-reply@smurfs.lol',
+            to: 'smurfslollogs@yandex.ru',
+            subject: order.email,
+            text: accountsForDelivery
+          })
       }
       ctx.status = 200
       ctx.body = 'ok'

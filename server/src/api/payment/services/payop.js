@@ -38,7 +38,9 @@ module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
         "email": order.email,
         "phone": "",
         "name": "",
-        "extraFields": {}
+        "extraFields": {
+          association: 'wfewfefwe',
+        }
       },
       "language": "en",
       "resultUrl": `https://smurfs.lol/payment-completed?orderid=${order.smurf.id}`,
