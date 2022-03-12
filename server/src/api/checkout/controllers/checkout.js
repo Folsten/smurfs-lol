@@ -27,7 +27,19 @@ module.exports = createCoreController('api::checkout.checkout', ({ strapi }) => 
       }
     } catch (err) {
       console.log(err);
+      ctx.status = 500;
       ctx.body = 'error';
+    }
+  },
+  async customPayment(ctx) {
+    try {
+      const body = ctx.request.body
+      const signature = await strapi.service('api::payment.payop').generateSignatureForCustomPayment(body);
+      return await strapi.service('api::payment.payop').requestPayopInvoiceForCustomPayment(body, signature);
+    } catch (err) {
+      console.log(err)
+      ctx.status = 500;
+      ctx.body = 'error'
     }
   }
 }))

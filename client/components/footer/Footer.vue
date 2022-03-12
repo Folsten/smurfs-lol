@@ -115,9 +115,9 @@
           </li>
           <li class="flex items-center whitespace-nowrap h-10">
             <NuxtLink
-              :to="'/gifting-store'"
+              :to="'/gifting-center'"
               class="footer__link"
-              >Gifting store</NuxtLink
+              >Gifting center</NuxtLink
             >
           </li>
           <li class="flex items-center whitespace-nowrap h-10">

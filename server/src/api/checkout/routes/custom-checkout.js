@@ -8,5 +8,13 @@ module.exports = {
         auth: false,
       }
     },
+    {
+      method: 'POST',
+      path: '/checkout/custom-payment',
+      handler: 'checkout.customPayment',
+      config: {
+        auth: false,
+      }
+    }
   ]
 }

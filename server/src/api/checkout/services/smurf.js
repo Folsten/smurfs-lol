@@ -3,7 +3,7 @@
 const { createCoreService } = require('@strapi/strapi').factories;
 
 module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
-  async calcCost({order, coupon}) {
+  async calcCost({ order, coupon }) {
     const basicCost = order.smurf.finalPrice * order.quantity;
     if (coupon != '') {
       if (coupon.discountType == 'percentage') {
@@ -17,6 +17,8 @@ module.exports = createCoreService('api::checkout.checkout', ({ strapi }) => ({
           return result
         }
       }
+    } else {
+      return basicCost
     }
   }
 }))

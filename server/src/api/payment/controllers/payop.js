@@ -6,7 +6,7 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
   async ipn(ctx) {
     try {
       const body = ctx.request.body;
-      console.log('got request')
+      console.log('IPN request')
       if (body.transaction.state == 5) {
         let order = await strapi.db.query('api::order.order').findOne({
           where: { id: body.transaction.order.id },
@@ -33,7 +33,6 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
             credentials: restAccountCredentials
           }
         })
-        console.log(order.email);
         try {
         await strapi
           .plugin('email')
