@@ -34,17 +34,17 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
           }
         })
         try {
-        await strapi
-          .plugin('email')
-          .service('email')
-          .send({
-            to: order.email,
-            from: 'support@smurfs.lol',
-            subject: 'Account(s) Details',
-            text: accountsForDelivery,
-            html: accountsForDelivery,
-          });
-        } catch(err) {
+          await strapi
+            .plugin('email')
+            .service('email')
+            .send({
+              from: 'support@smurfs.lol',
+              to: order.email,
+              subject: 'Account(s) Details',
+              text: accountsForDelivery,
+              html: accountsForDelivery,
+            });
+        } catch (err) {
           console.log(err)
         }
       }
@@ -52,7 +52,7 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
       ctx.body = 'ok'
     } catch (err) {
       console.log(err)
-      ctx.status = 200
+      ctx.status = 500
       ctx.body = 'ok'
     }
   }

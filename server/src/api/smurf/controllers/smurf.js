@@ -14,7 +14,7 @@ module.exports = createCoreController('api::smurf.smurf', ({ strapi }) => ({
     let processedSmurfs = [];
 
     data.forEach(async element => {
-      if (element.credentials != null) {
+      if (element.credentials != '' && element.credentials != null) {
         element.stock = element.credentials.split('\n').length;
         // Не удалять строчку ниже! Она препятствует передаче на фронтенд данных о логинах и паролях
         delete element.credentials; // Не удалять
