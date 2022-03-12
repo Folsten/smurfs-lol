@@ -38,7 +38,7 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
           .plugin('email')
           .service('email')
           .send({
-            from: 'no-reply@smurfs.lol',
+            from: 'support@smurfs.lol',
             to: order.email,
             subject: 'Account(s) Details',
             text: accountsForDelivery,
@@ -47,7 +47,7 @@ module.exports = createCoreService('api::payment.payment', ({ strapi }) => ({
           .plugin('email')
           .service('email')
           .send({
-            from: 'no-reply@smurfs.lol',
+            from: 'support@smurfs.lol',
             to: 'smurfslollogs@yandex.ru',
             subject: order.email,
             text: accountsForDelivery
