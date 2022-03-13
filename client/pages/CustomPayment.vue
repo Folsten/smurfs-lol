@@ -19,6 +19,8 @@
             <input
               required
               type="number"
+              min="1"
+              step="0.1"
               @keypress="numbersOnly"
               class="mt-3 rounded-main w-full h-10 pl-3 pr-3 text-black"
               placeholder="Amount"
