@@ -1,6 +1,9 @@
 <template>
   <div>
-    <HeaderTopNotification ref="headerTopNotification"></HeaderTopNotification>
+    <HeaderTopNotification
+      ref="headerTopNotification"
+      v-if="isTopNotificationVisible"
+    ></HeaderTopNotification>
     <div class="relative w-full h-auto">
       <header
         v-bind="$attrs"
@@ -94,6 +97,12 @@
 
 <script>
 export default {
+  props: {
+    isTopNotificationVisible: {
+      default: true,
+      type: Boolean,
+    },
+  },
   data: function () {
     return {
       isHeaderOnTop: true,
@@ -101,8 +110,10 @@ export default {
     };
   },
   mounted() {
-    this.setAbsolutePositions();
-    this.scroll();
+    if (this.isTopNotificationVisible) {
+      this.setAbsolutePositions();
+      this.scroll();
+    }
   },
   methods: {
     scroll() {
@@ -111,7 +122,7 @@ export default {
       };
       window.onresize = () => {
         this.setAbsolutePositions();
-      }
+      };
     },
     setAbsolutePositions() {
       if (window.pageYOffset > 0) {

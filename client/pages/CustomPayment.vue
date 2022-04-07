@@ -12,9 +12,9 @@
             <input
               type="email"
               required
-              placeholder="Email"
+              placeholder="Your email"
               v-model="email"
-              class="rounded-main w-full h-10 pl-3 pr-3 text-black"
+              class="w-full h-10 pl-3 pr-3 mainInput"
             />
             <input
               required
@@ -22,21 +22,21 @@
               min="1"
               step="0.1"
               @keypress="numbersOnly"
-              class="mt-3 rounded-main w-full h-10 pl-3 pr-3 text-black"
+              class="mt-3 w-full h-10 pl-3 pr-3 mainInput"
               placeholder="Amount"
               v-model="amountFiltered"
               @keydown.space.prevent
             />
             <select
               v-model="currency"
-              class="mt-3 text-black h-10 rounded-main pl-3 pr-3 bg-white"
+              class="mt-3 h-10 pl-3 pr-3 mainInput"
             >
               <option>USD</option>
               <option>EUR</option>
             </select>
             <button
               type="submit"
-              class="mt-3 bg-success duration-200 h-10 font-bold rounded-main"
+              class="mt-3 primaryButton primaryButton_anime h-12"
             >
               Continue
             </button>
@@ -45,7 +45,7 @@
             </div>
           </form>
         </div>
-        <div class="flex justify-center mt-7">
+        <div class="flex justify-center mt-5">
           <img
             src="~/assets/img/paymentMethods/creditCards/Visa/Visa-card-dark.png"
             class="w-14 h-full ml-1 mr-1"
@@ -105,7 +105,6 @@ export default {
         if (value > this.maxAmount) {
           this.error = `Amount can't be higher than ${this.maxAmount} ${this.currency}`;
         }
-        console.log(this.amount);
       },
     },
   },

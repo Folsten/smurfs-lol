@@ -325,3 +325,11 @@
 
 /* .dropdown1:hover .dropDownMenu {
 } */
+
+.mainInput {
+  @apply bg-secondaryAction rounded-main;
+
+  &::placeholder {
+    @apply text-special;
+  }
+}
