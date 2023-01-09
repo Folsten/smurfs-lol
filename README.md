@@ -20,7 +20,7 @@ Smurfs-lol - это полностью готовый, рабочий проек
 Необходимо перейти в директорию "client" и выполнить пару команд в указанной последовательности:
 
 <ul>
-  <li><code>yarn add</code></li>
+  <li><code>yarn install</code></li>
   <li><code>yarn run dev</code></li>
 </ul>
 
